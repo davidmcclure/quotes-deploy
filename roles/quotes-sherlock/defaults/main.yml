@@ -32,12 +32,11 @@ quotes_config:
 
 quotes_sbatch_mpi:
 
-  # test
   - name: query-kjb
-    time: 01:00:00
-    nodes: 1
-    tasks: 1
-    mem: 4000
+    time: 03:00:00
+    nodes: 2
+    tasks: 16
+    mem: 64000
 
 quotes_sbatch:
 
