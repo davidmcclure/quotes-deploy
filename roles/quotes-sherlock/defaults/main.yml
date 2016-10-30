@@ -1,0 +1,45 @@
+---
+
+quotes_repo: git@github.com:davidmcclure/quotes.git
+quotes_branch: master
+
+quotes_dirs:
+  code: /share/PI/malgeehe/code/quotes
+  config: /share/PI/malgeehe/config/quotes
+  sbatch: /share/PI/malgeehe/sbatch/quotes
+  data: /scratch/PI/malgeehe/data/quotes
+
+# ****
+
+quotes_config:
+
+  database: '{{ quotes_dirs.data }}/quotes.db'
+
+  stacks_dirs:
+    - /scratch/PI/malgeehe/data/stacks/ext/chicago
+    - /scratch/PI/malgeehe/data/stacks/ext/gail-amfic
+
+  text_paths:
+    kjb: '{{ quotes_dirs.data }}/texts/kjb.txt'
+
+  result_dir: '{{ quotes_dirs.data }}/results'
+
+# ****
+
+#lint_sbatch_mpi:
+
+  #- name: ext-chicago-tokens
+    #time: 02:00:00
+    #nodes: 2
+    #tasks: 16
+    #mem: 64000
+
+# ****
+
+#lint_sbatch:
+
+  #- name: gather-chicago-tokens
+    #time: 02:00:00
+    #nodes: 1
+    #tasks: 3
+    #mem: 12000

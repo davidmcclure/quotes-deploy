@@ -1,0 +1,43 @@
+---
+
+- name: Create project directories
+  file:
+    path: '{{ item.value }}'
+    state: directory
+  with_dict: '{{ quotes_dirs }}'
+
+# TODO: texts + results dirs?
+
+- name: Pull the source code
+  git:
+    repo: '{{ quotes_repo }}'
+    version: '{{ quotes_branch }}'
+    dest: '{{ quotes_dirs.code }}'
+    accept_hostkey: yes
+
+- name: Push the config files
+  template:
+    src: quotes.yml.j2
+    dest: '{{ quiotes_dirs.config }}/quotes.yml'
+
+- name: Install the package
+  command: bin/setup-sherlock
+  args:
+    chdir: '{{ quotes_dirs.code }}'
+
+- name: Configure .bashrc
+  lineinfile:
+    dest: /home/{{ ansible_ssh_user }}/.bashrc
+    line: export QUOTES_CONFIG={{ quotes_dirs.config }}
+
+- name: Push MPI sbatch configs
+  template:
+    src: sbatch-mpi.j2
+    dest: '{{ quotes_dirs.sbatch }}/{{ item.name }}.sbatch'
+  with_items: '{{ quotes_sbatch_mpi }}'
+
+- name: Push single-threaded sbatch configs
+  template:
+    src: sbatch.j2
+    dest: '{{ quotes_dirs.sbatch }}/{{ item.name }}.sbatch'
+  with_items: '{{ quotes_sbatch }}'

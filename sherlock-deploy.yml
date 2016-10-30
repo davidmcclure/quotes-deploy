@@ -1,0 +1,9 @@
+---
+
+- name: Deploy to Sherlock
+
+  hosts:
+    - sherlock
+
+  roles:
+    - role: lint-sherlock
