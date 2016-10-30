@@ -9,6 +9,10 @@ quotes_dirs:
   sbatch: /share/PI/malgeehe/sbatch/quotes
   data: /scratch/PI/malgeehe/data/quotes
 
+quotes_data_dirs:
+  results: '{{ quotes_dirs.data }}/results'
+  texts: '{{ quotes_dirs.data }}/texts'
+
 # ****
 
 quotes_config:
@@ -20,26 +24,24 @@ quotes_config:
     - /scratch/PI/malgeehe/data/stacks/ext/gail-amfic
 
   text_paths:
-    kjb: '{{ quotes_dirs.data }}/texts/kjb.txt'
+    kjb: '{{ quotes_data_dirs.texts }}/kjb.txt'
 
-  result_dir: '{{ quotes_dirs.data }}/results'
-
-# ****
-
-#lint_sbatch_mpi:
-
-  #- name: ext-chicago-tokens
-    #time: 02:00:00
-    #nodes: 2
-    #tasks: 16
-    #mem: 64000
+  result_dir: '{{ quotes_data_dirs.results }}'
 
 # ****
 
-#lint_sbatch:
+quotes_sbatch_mpi:
 
-  #- name: gather-chicago-tokens
-    #time: 02:00:00
-    #nodes: 1
-    #tasks: 3
-    #mem: 12000
+  - name: query-kjb
+    time: 01:00:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
+
+quotes_sbatch:
+
+  - name: gather-kjb
+    time: 01:00:00
+    nodes: 1
+    tasks: 1
+    mem: 4000

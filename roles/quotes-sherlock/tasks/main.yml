@@ -6,7 +6,11 @@
     state: directory
   with_dict: '{{ quotes_dirs }}'
 
-# TODO: texts + results dirs?
+- name: Create data directories
+  file:
+    path: '{{ item.value }}'
+    state: directory
+  with_dict: '{{ quotes_data_dirs }}'
 
 - name: Pull the source code
   git:
@@ -18,7 +22,7 @@
 - name: Push the config files
   template:
     src: quotes.yml.j2
-    dest: '{{ quiotes_dirs.config }}/quotes.yml'
+    dest: '{{ quotes_dirs.config }}/quotes.yml'
 
 - name: Install the package
   command: bin/setup-sherlock
