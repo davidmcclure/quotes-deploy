@@ -39,9 +39,15 @@ quotes_sbatch_mpi:
     tasks: 16
     mem: 64000
 
+  - name: query-hamlet
+    time: 03:00:00
+    nodes: 2
+    tasks: 16
+    mem: 64000
+
 quotes_sbatch:
 
-  - name: gather-kjb
+  - name: gather
     time: 01:00:00
     nodes: 1
     tasks: 1
