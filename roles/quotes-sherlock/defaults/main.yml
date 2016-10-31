@@ -39,12 +39,11 @@ quotes_sbatch_mpi:
     tasks: 16
     mem: 64000
 
-  # test
   - name: query-hamlet
-    time: 00:10:00
+    time: 01:00:00
     nodes: 1
-    tasks: 1
-    mem: 4000
+    tasks: 16
+    mem: 64000
 
 quotes_sbatch:
 
