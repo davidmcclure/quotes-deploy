@@ -25,6 +25,7 @@ quotes_config:
 
   text_paths:
     kjb: '{{ quotes_data_dirs.texts }}/kjb.txt'
+    hamlet: '{{ quotes_data_dirs.texts }}/hamlet.txt'
 
   result_dir: '{{ quotes_data_dirs.results }}'
 
