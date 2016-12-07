@@ -20,12 +20,12 @@ quotes_config:
   database: '{{ quotes_dirs.data }}/quotes.db'
 
   stacks_dirs:
-    - /scratch/PI/malgeehe/data/stacks/ext/chicago
-    - /scratch/PI/malgeehe/data/stacks/ext/gail-amfic
+    - /scratch/PI/malgeehe/data/stacks/ext/bpo
 
   text_paths:
     kjb: '{{ quotes_data_dirs.texts }}/kjb.txt'
     hamlet: '{{ quotes_data_dirs.texts }}/hamlet.txt'
+    waverly: '{{ quotes_data_dirs.texts }}/waverly.txt'
 
   result_dir: '{{ quotes_data_dirs.results }}'
 
@@ -44,6 +44,13 @@ quotes_sbatch_mpi:
     nodes: 1
     tasks: 16
     mem: 64000
+
+  # test
+  - name: query-waverly
+    time: 00:10:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
 
 quotes_sbatch:
 
