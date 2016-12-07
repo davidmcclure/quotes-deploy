@@ -20,7 +20,11 @@ quotes_config:
   database: '{{ quotes_dirs.data }}/quotes.db'
 
   stacks_dirs:
-    - /scratch/PI/malgeehe/data/stacks/ext/bpo
+    - /scratch/PI/malgeehe/data/stacks/ext/bpo/000
+    - /scratch/PI/malgeehe/data/stacks/ext/bpo/001
+    - /scratch/PI/malgeehe/data/stacks/ext/bpo/002
+    - /scratch/PI/malgeehe/data/stacks/ext/bpo/003
+    - /scratch/PI/malgeehe/data/stacks/ext/bpo/005
 
   text_paths:
     kjb: '{{ quotes_data_dirs.texts }}/kjb.txt'
