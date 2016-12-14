@@ -1,7 +1,7 @@
 ---
 
 quotes_repo: git@github.com:davidmcclure/quotes.git
-quotes_branch: master
+quotes_branch: feature/c19
 
 quotes_dirs:
   code: /share/PI/malgeehe/code/quotes
@@ -13,41 +13,23 @@ quotes_data_dirs:
   results: '{{ quotes_dirs.data }}/results'
   texts: '{{ quotes_dirs.data }}/texts'
 
+stacks_data: /scratch/PI/malgeehe/data/stacks
+
 # ****
 
 quotes_config:
 
   database: '{{ quotes_dirs.data }}/quotes.db'
 
-  stacks_dirs:
-    - /scratch/PI/malgeehe/data/stacks/ext/bpo/000
-    - /scratch/PI/malgeehe/data/stacks/ext/bpo/001
-    - /scratch/PI/malgeehe/data/stacks/ext/bpo/002
-    - /scratch/PI/malgeehe/data/stacks/ext/bpo/003
-    - /scratch/PI/malgeehe/data/stacks/ext/bpo/005
+  chadh_corpus_dir: '{{ quotes_dirs.data }}/texts/chadh'
 
-  text_paths:
-    kjb: '{{ quotes_data_dirs.texts }}/kjb.txt'
-    hamlet: '{{ quotes_data_dirs.texts }}/hamlet.txt'
-    waverly: '{{ quotes_data_dirs.texts }}/waverly.txt'
+  stacks_db_url: 'sqlite:///{{ stacks_data }}/metadata.db'
 
   result_dir: '{{ quotes_data_dirs.results }}'
 
 # ****
 
 quotes_sbatch_mpi:
-
-  - name: query-kjb
-    time: 03:00:00
-    nodes: 2
-    tasks: 16
-    mem: 64000
-
-  - name: query-hamlet
-    time: 01:00:00
-    nodes: 1
-    tasks: 16
-    mem: 64000
 
   # test
   - name: query-waverly
