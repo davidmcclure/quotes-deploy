@@ -1,7 +1,7 @@
 ---
 
 quotes_repo: git@github.com:davidmcclure/quotes.git
-quotes_branch: feature/c19
+quotes_branch: feature/bpo
 
 quotes_dirs:
   code: /share/PI/malgeehe/code/quotes
@@ -22,6 +22,8 @@ quotes_config:
   database: '{{ quotes_dirs.data }}/quotes.db'
 
   chadh_corpus_dir: '{{ quotes_dirs.data }}/texts/chadh'
+
+  bpo_corpus_dir: '{{ quotes_dirs.data }}/texts/bpo'
 
   stacks_db_url: 'sqlite:///{{ stacks_data }}/metadata.db'
 
