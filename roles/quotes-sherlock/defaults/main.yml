@@ -10,7 +10,8 @@ quotes_dirs:
   data: /scratch/PI/malgeehe/data/quotes
 
 quotes_data_dirs:
-  results: '{{ quotes_dirs.data }}/results'
+  bpo_results: '{{ quotes_dirs.data }}/results/bpo'
+  match_results: '{{ quotes_dirs.data }}/results/matches'
   texts: '{{ quotes_dirs.data }}/texts'
 
 stacks_data: /scratch/PI/malgeehe/data/stacks
@@ -27,22 +28,24 @@ quotes_config:
 
   stacks_db_url: 'sqlite:///{{ stacks_data }}/metadata.db'
 
-  result_dir: '{{ quotes_data_dirs.results }}'
+  match_result_dir: '{{ quotes_data_dirs.match_results }}'
+
+  bpo_result_dir: '{{ quotes_data_dirs.bpo_results }}'
 
 # ****
 
 quotes_sbatch_mpi:
 
-  - name: query-waverly
-    time: 01:00:00
-    nodes: 2
-    tasks: 16
-    mem: 64000
+  - name: ext-bpo
+    time: 00:10:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
 
 quotes_sbatch:
 
-  - name: gather
-    time: 01:00:00
+  - name: gather-bpo
+    time: 00:10:00
     nodes: 1
     tasks: 1
     mem: 4000
