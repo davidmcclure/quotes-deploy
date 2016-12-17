@@ -36,12 +36,11 @@ quotes_config:
 
 quotes_sbatch_mpi:
 
-  # test
   - name: unzip-bpo
-    time: 00:10:00
+    time: 02:00:00
     nodes: 1
-    tasks: 4
-    mem: 4000
+    tasks: 16
+    mem: 16000
 
   # 7536 in 10m
   - name: ext-bpo
