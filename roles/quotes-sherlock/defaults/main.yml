@@ -40,9 +40,8 @@ quotes_sbatch_mpi:
     tasks: 16
     mem: 16000
 
-  # 7536 in 10m
   - name: ext-bpo
-    time: 05:00:00
+    time: 06:00:00
     nodes: 2
     tasks: 16
     mem: 64000
