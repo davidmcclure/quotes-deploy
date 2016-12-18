@@ -10,7 +10,7 @@ quotes_dirs:
   data: /scratch/PI/malgeehe/data/quotes
 
 quotes_data_dirs:
-  bpo_results: '{{ quotes_dirs.data }}/results/bpo-test'
+  bpo_results: '{{ quotes_dirs.data }}/results/bpo'
   alignment_results: '{{ quotes_dirs.data }}/results/alignments'
   texts: '{{ quotes_dirs.data }}/texts'
 
@@ -41,8 +41,8 @@ quotes_sbatch_mpi:
     mem: 16000
 
   - name: ext-bpo
-    time: 00:20:00
-    nodes: 1
+    time: 06:00:00
+    nodes: 2
     tasks: 16
     mem: 64000
 
