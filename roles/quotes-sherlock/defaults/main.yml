@@ -11,7 +11,7 @@ quotes_dirs:
 
 quotes_data_dirs:
   bpo_results: '{{ quotes_dirs.data }}/results/bpo'
-  match_results: '{{ quotes_dirs.data }}/results/matches'
+  alignment_results: '{{ quotes_dirs.data }}/results/alignments'
   texts: '{{ quotes_dirs.data }}/texts'
 
 stacks_data: /scratch/PI/malgeehe/data/stacks
@@ -26,9 +26,7 @@ quotes_config:
 
   bpo_corpus_dir: '{{ quotes_dirs.data }}/texts/bpo'
 
-  stacks_db_url: 'sqlite:///{{ stacks_data }}/metadata.db'
-
-  match_result_dir: '{{ quotes_data_dirs.match_results }}'
+  alignment_result_dir: '{{ quotes_data_dirs.alignment_results }}'
 
   bpo_result_dir: '{{ quotes_data_dirs.bpo_results }}'
 
