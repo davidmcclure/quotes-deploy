@@ -49,7 +49,7 @@ quotes_sbatch_mpi:
 quotes_sbatch:
 
   - name: gather-bpo
-    time: 00:20:00
+    time: 05:00:00
     nodes: 1
     tasks: 1
     mem: 4000
