@@ -46,10 +46,16 @@ quotes_sbatch_mpi:
     tasks: 16
     mem: 64000
 
+  - name: ext-alignments
+    time: 01:00:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
+
 quotes_sbatch:
 
-  - name: gather-bpo
-    time: 05:00:00
+  - name: gather-alignments
+    time: 00:10:00
     nodes: 1
     tasks: 1
     mem: 4000
