@@ -54,6 +54,7 @@ quotes_sbatch_mpi:
 
 quotes_sbatch:
 
+  # test
   - name: gather-alignments
     time: 00:10:00
     nodes: 1
