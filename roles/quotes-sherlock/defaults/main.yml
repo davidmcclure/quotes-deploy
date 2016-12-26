@@ -47,8 +47,8 @@ quotes_sbatch_mpi:
     mem: 64000
 
   - name: ext-alignments
-    time: 01:00:00
-    nodes: 1
+    time: '20:00:00'
+    nodes: 32
     tasks: 16
     mem: 64000
 
