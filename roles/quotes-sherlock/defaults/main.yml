@@ -10,7 +10,7 @@ quotes_dirs:
   data: /scratch/PI/malgeehe/data/quotes
 
 quotes_data_dirs:
-  results: '{{ quotes_dirs.data }}/results'
+  results: '{{ quotes_dirs.data }}/results/hamlet'
   texts: '{{ quotes_dirs.data }}/texts'
 
 # ****
