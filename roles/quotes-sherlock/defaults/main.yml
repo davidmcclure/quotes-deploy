@@ -10,7 +10,7 @@ quotes_dirs:
   data: /scratch/PI/malgeehe/data/quotes
 
 quotes_data_dirs:
-  alignment_results: '{{ quotes_dirs.data }}/results/alignments'
+  alignment_results: '{{ quotes_dirs.data }}/results/alignments/pl'
 
 stacks_data: /scratch/PI/malgeehe/data/stacks
 
