@@ -1,7 +1,7 @@
 ---
 
 quotes_repo: git@github.com:davidmcclure/quotes.git
-quotes_branch: feature/bpo
+quotes_branch: pl
 
 quotes_dirs:
   code: /share/PI/malgeehe/code/quotes
@@ -10,45 +10,23 @@ quotes_dirs:
   data: /scratch/PI/malgeehe/data/quotes
 
 quotes_data_dirs:
-  bpo_results: '{{ quotes_dirs.data }}/results/bpo'
   alignment_results: '{{ quotes_dirs.data }}/results/alignments'
-  texts: '{{ quotes_dirs.data }}/texts'
 
 stacks_data: /scratch/PI/malgeehe/data/stacks
 
 # ****
 
 quotes_config:
-
   database: '{{ quotes_dirs.data }}/quotes.db'
-
-  chadh_corpus_dir: '{{ quotes_dirs.data }}/texts/chadh'
-
-  bpo_corpus_dir: '{{ quotes_dirs.data }}/texts/bpo'
-
   alignment_result_dir: '{{ quotes_data_dirs.alignment_results }}'
-
-  bpo_result_dir: '{{ quotes_data_dirs.bpo_results }}'
 
 # ****
 
 quotes_sbatch_mpi:
 
-  - name: unzip-bpo
-    time: 02:00:00
-    nodes: 1
-    tasks: 16
-    mem: 16000
-
-  - name: ext-bpo
-    time: 06:00:00
-    nodes: 2
-    tasks: 16
-    mem: 64000
-
   - name: ext-alignments
-    time: '40:00:00'
-    nodes: 32
+    time: 00:10:00
+    nodes: 1
     tasks: 16
     mem: 64000
 

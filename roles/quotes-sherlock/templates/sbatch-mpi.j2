@@ -36,4 +36,4 @@ module load python/3.3.2
 export PYTHONPATH={{ quotes_dirs.code }}
 
 mpirun -x PYTHONPATH $PYTHONPATH/env/bin/python \
-    $PYTHONPATH/bin/{{ item.name }}.py
+    $PYTHONPATH/bin/{{ item.name }}.py $@
