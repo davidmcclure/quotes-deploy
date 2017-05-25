@@ -25,7 +25,7 @@ quotes_config:
 quotes_sbatch_mpi:
 
   - name: ext-alignments
-    time: 01:00:00
+    time: 00:20:00
     nodes: 1
     tasks: 16
     mem: 64000
