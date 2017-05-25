@@ -19,7 +19,7 @@
 
     instance_tags:
       Name: '{{ ec2_name }}'
-      osp: '{{ ec2_tag }}'
+      quotes: '{{ ec2_tag }}'
 
     count_tag:
-      osp: '{{ ec2_tag }}'
+      quotes: '{{ ec2_tag }}'

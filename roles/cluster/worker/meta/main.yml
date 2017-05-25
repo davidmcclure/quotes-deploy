@@ -7,6 +7,6 @@ dependencies:
     ec2_name: quotes-worker
     ec2_tag: quotes-worker
 
-    ec2_instance_type: c4.8xlarge
+    ec2_instance_type: c3.8xlarge
 
     ec2_group: quotes-worker

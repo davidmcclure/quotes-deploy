@@ -9,13 +9,18 @@
   with_items:
     - python3-dev
     - python-virtualenv
+    - git
+    - sqlite3
 
-- name: Create the config directory
+- name: Create directories
   file:
-    path: /etc/quotes
+    path: '{{ item }}'
     group: '{{ ansible_ssh_user }}'
     owner: '{{ ansible_ssh_user }}'
     state: directory
+  with_items:
+    - /etc/quotes
+    - '{{ quotes_result_dir }}'
 
 - name: Update the source code
   tags: code
@@ -54,6 +59,6 @@
 - name: Push the config files
   template:
     src: '{{ item }}.yml.j2'
-    dest: /etc/osp/{{ item }}.yml
+    dest: /etc/quotes/{{ item }}.yml
   with_items:
     - quotes
