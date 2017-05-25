@@ -1,0 +1,12 @@
+---
+
+quotes_repo: https://github.com/davidmcclure/quotes.git
+quotes_branch: pl
+
+quotes_src_dir: /opt/quotes
+
+quotes_result_dir: /mnt/results
+
+quotes_config:
+  database: /mnt/quotes.db
+  alignment_result_dir: '{{ quotes_result_dir }}'

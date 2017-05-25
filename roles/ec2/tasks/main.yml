@@ -1,0 +1,59 @@
+---
+
+- name: Install system dependencies
+  become: yes
+  apt:
+    pkg: '{{ item }}'
+    update_cache: true
+    state: latest
+  with_items:
+    - python3-dev
+    - python-virtualenv
+
+- name: Create the config directory
+  file:
+    path: /etc/quotes
+    group: '{{ ansible_ssh_user }}'
+    owner: '{{ ansible_ssh_user }}'
+    state: directory
+
+- name: Update the source code
+  tags: code
+  git:
+    repo: '{{ quotes_repo }}'
+    version: '{{ quotes_branch }}'
+    dest: '{{ quotes_src_dir }}'
+
+- name: Check if a virtualenv exists
+  register: env
+  stat:
+    path: '{{ quotes_src_dir }}/env'
+
+# pyvenv is broken on Ubuntu 14.04.
+- name: Create a Python 3 virtualenv, if necessary
+  when: env.stat.isdir is not defined
+  command: virtualenv --python=/usr/bin/python3.4 env
+  args:
+    chdir: '{{ quotes_src_dir }}'
+
+- name: Update pip
+  command: env/bin/pip install --upgrade pip
+  args:
+    chdir: '{{ quotes_src_dir }}'
+
+- name: Install pip dependencies
+  command: env/bin/pip install -r requirements.txt
+  args:
+    chdir: '{{ quotes_src_dir }}'
+
+- name: Install the package
+  command: env/bin/python setup.py develop
+  args:
+    chdir: '{{ quotes_src_dir }}'
+
+- name: Push the config files
+  template:
+    src: '{{ item }}.yml.j2'
+    dest: /etc/osp/{{ item }}.yml
+  with_items:
+    - quotes
