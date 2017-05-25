@@ -1,0 +1,7 @@
+---
+
+- name: Provision a worker
+  hosts: localhost
+
+  roles:
+    - cluster/worker

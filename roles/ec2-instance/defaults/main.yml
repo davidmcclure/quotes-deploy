@@ -1,0 +1,17 @@
+---
+
+ec2_region: us-east-1
+ec2_image: ami-9eaa1cf6
+
+ec2_instance_count: 1
+
+# Vault
+ec2_subnet: null
+ec2_keypair: null
+
+# Role
+ec2_name: null
+ec2_tag: null
+ec2_instance_type: null
+ec2_group: null
+ec2_snapshot: null

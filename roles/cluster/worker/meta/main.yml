@@ -1,0 +1,12 @@
+---
+
+dependencies:
+
+  - role: ec2-instance
+
+    ec2_name: quotes-worker
+    ec2_tag: quotes-worker
+
+    ec2_instance_type: c4.8xlarge
+
+    ec2_group: quotes-worker
