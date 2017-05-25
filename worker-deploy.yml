@@ -1,0 +1,7 @@
+---
+
+- name: Deploy worker
+  become: yes
+  hosts: tag_quotes_worker
+  roles:
+    - ec2
